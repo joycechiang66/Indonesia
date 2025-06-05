@@ -22,7 +22,7 @@ Before you begin, ensure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/indonesia.git
+   git clone https://github.com/joycechiang66/indonesia.git
    ```
 
 2. Navigate to the project directory:
