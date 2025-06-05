@@ -5,7 +5,7 @@ import './styles/global.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Indonesia">
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

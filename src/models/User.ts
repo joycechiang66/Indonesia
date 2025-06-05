@@ -1,38 +1,35 @@
-import db from '../database/db';
+import Database from 'better-sqlite3';
 
 export interface User {
   id?: number;
   name: string;
   email: string;
   phone: string;
-  created_at?: string;
 }
 
-export class UserModel {
-  // 獲取所有用戶
-  static getAll(): User[] {
-    return db.prepare('SELECT * FROM users').all();
-  }
+const db = new Database('users.db');
 
-  // 通過手機號碼查找用戶
-  static findByPhone(phone: string): User | undefined {
-    return db.prepare('SELECT * FROM users WHERE phone = ?').get(phone);
-  }
+export const getAllUsers = (): User[] => {
+  const result = db.prepare('SELECT * FROM users').all();
+  return result as User[];
+};
 
-  // 通過郵箱查找用戶
-  static findByEmail(email: string): User | undefined {
-    return db.prepare('SELECT * FROM users WHERE email = ?').get(email);
-  }
+export const getUserByPhone = (phone: string): User | undefined => {
+  const result = db.prepare('SELECT * FROM users WHERE phone = ?').get(phone);
+  return result as User | undefined;
+};
 
-  // 創建新用戶
-  static create(user: Omit<User, 'id' | 'created_at'>): User {
-    const stmt = db.prepare(`
-      INSERT INTO users (name, email, phone)
-      VALUES (?, ?, ?)
-      RETURNING *
-    `);
-    return stmt.get(user.name, user.email, user.phone);
-  }
-}
+export const getUserByEmail = (email: string): User | undefined => {
+  const result = db.prepare('SELECT * FROM users WHERE email = ?').get(email);
+  return result as User | undefined;
+};
 
-export default UserModel; 
+export const createUser = (user: User): User => {
+  const stmt = db.prepare(
+    'INSERT INTO users (name, email, phone) VALUES (?, ?, ?) RETURNING *'
+  );
+  const result = stmt.get(user.name, user.email, user.phone);
+  return result as User;
+};
+
+export default { getAllUsers, getUserByPhone, getUserByEmail, createUser }; 

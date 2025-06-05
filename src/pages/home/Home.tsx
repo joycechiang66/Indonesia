@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Typography, TextField, Button, Box, Container, InputAdornment, Link, Modal, InputBase, Slide } from '@mui/material';
+import { Typography, TextField, Button, Box, Container, Link, InputBase, Slide } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -12,30 +12,30 @@ const Home = () => {
   const [selectedCountry, setSelectedCountry] = useState({
     name: 'Indonesia',
     code: '+62',
-    flag: '/src/assets/images/icons/Flag/indonesia.svg'
+    flag: './assets/images/icons/Flag/indonesia.svg'
   });
 
   const countries = [
-    { name: 'Indonesia', code: '+62', flag: '/src/assets/images/icons/Flag/indonesia.svg' },
-    { name: 'Afghanistan', code: '+93', flag: '/src/assets/images/icons/Flag/afghanistan.svg' },
-    { name: 'Albania', code: '+355', flag: '/src/assets/images/icons/Flag/albania.svg' },
-    { name: 'Algeria', code: '+213', flag: '/src/assets/images/icons/Flag/algeria.svg' },
-    { name: 'Andorra', code: '+376', flag: '/src/assets/images/icons/Flag/andorra.svg' },
-    { name: 'Angola', code: '+244', flag: '/src/assets/images/icons/Flag/angola.svg' },
-    { name: 'Argentina', code: '+54', flag: '/src/assets/images/icons/Flag/argentina.svg' },
-    { name: 'Armenia', code: '+374', flag: '/src/assets/images/icons/Flag/armenia.svg' },
-    { name: 'Australia', code: '+61', flag: '/src/assets/images/icons/Flag/australia.svg' },
-    { name: 'Austria', code: '+43', flag: '/src/assets/images/icons/Flag/austria.svg' },
-    { name: 'Azerbaijan', code: '+994', flag: '/src/assets/images/icons/Flag/azerbaijan.svg' },
-    { name: 'Bahrain', code: '+973', flag: '/src/assets/images/icons/Flag/bahrain.svg' },
-    { name: 'Bangladesh', code: '+880', flag: '/src/assets/images/icons/Flag/bangladesh.svg' },
-    { name: 'Belgium', code: '+32', flag: '/src/assets/images/icons/Flag/belgium.svg' },
-    { name: 'Brazil', code: '+55', flag: '/src/assets/images/icons/Flag/brazil.svg' },
-    { name: 'Canada', code: '+1', flag: '/src/assets/images/icons/Flag/canada.svg' },
-    { name: 'China', code: '+86', flag: '/src/assets/images/icons/Flag/china.svg' },
-    { name: 'Egypt', code: '+20', flag: '/src/assets/images/icons/Flag/egypt.svg' },
-    { name: 'France', code: '+33', flag: '/src/assets/images/icons/Flag/france.svg' },
-    { name: 'Germany', code: '+49', flag: '/src/assets/images/icons/Flag/germany.svg' },
+    { name: 'Indonesia', code: '+62', flag: './assets/images/icons/Flag/indonesia.svg' },
+    { name: 'Afghanistan', code: '+93', flag: './assets/images/icons/Flag/afghanistan.svg' },
+    { name: 'Albania', code: '+355', flag: './assets/images/icons/Flag/albania.svg' },
+    { name: 'Algeria', code: '+213', flag: './assets/images/icons/Flag/algeria.svg' },
+    { name: 'Andorra', code: '+376', flag: './assets/images/icons/Flag/andorra.svg' },
+    { name: 'Angola', code: '+244', flag: './assets/images/icons/Flag/angola.svg' },
+    { name: 'Argentina', code: '+54', flag: './assets/images/icons/Flag/argentina.svg' },
+    { name: 'Armenia', code: '+374', flag: './assets/images/icons/Flag/armenia.svg' },
+    { name: 'Australia', code: '+61', flag: './assets/images/icons/Flag/australia.svg' },
+    { name: 'Austria', code: '+43', flag: './assets/images/icons/Flag/austria.svg' },
+    { name: 'Azerbaijan', code: '+994', flag: './assets/images/icons/Flag/azerbaijan.svg' },
+    { name: 'Bahrain', code: '+973', flag: './assets/images/icons/Flag/bahrain.svg' },
+    { name: 'Bangladesh', code: '+880', flag: './assets/images/icons/Flag/bangladesh.svg' },
+    { name: 'Belgium', code: '+32', flag: './assets/images/icons/Flag/belgium.svg' },
+    { name: 'Brazil', code: '+55', flag: './assets/images/icons/Flag/brazil.svg' },
+    { name: 'Canada', code: '+1', flag: './assets/images/icons/Flag/canada.svg' },
+    { name: 'China', code: '+86', flag: './assets/images/icons/Flag/china.svg' },
+    { name: 'Egypt', code: '+20', flag: './assets/images/icons/Flag/egypt.svg' },
+    { name: 'France', code: '+33', flag: './assets/images/icons/Flag/france.svg' },
+    { name: 'Germany', code: '+49', flag: './assets/images/icons/Flag/germany.svg' },
   ];
 
   const filteredCountries = useMemo(() => {
@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <Box
       sx={{
-        background: `url('/src/assets/images/backgrounds/login-back.svg')`,
+        background: `url('./assets/images/backgrounds/login-back.svg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'top',
         minHeight: '100vh',
