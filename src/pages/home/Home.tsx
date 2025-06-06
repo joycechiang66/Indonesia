@@ -70,7 +70,8 @@ const Home = () => {
     <Box
       sx={{
         background: `url('${import.meta.env.BASE_URL}images/backgrounds/login-back.svg')`,
-        backgroundSize: 'cover',
+        backgroundSize: '100%',
+        backgroundRepeat: 'no-repeat',
         backgroundPosition: 'top',
         minHeight: '100vh',
         position: 'relative',
