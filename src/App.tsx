@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material';
 import Layout from './components/layout/Layout';
 import Home from './pages/home/Home';
+import OtpVerify from './pages/home/OtpVerify';
+import OtpOld from './pages/home/OtpOld';
 import './styles/global.css';
 
 const theme = createTheme({
@@ -37,6 +39,8 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/otp" element={<OtpVerify />} />
+            <Route path="/otp-old" element={<OtpOld />} />
             {/* Add more routes here as needed */}
           </Routes>
         </Layout>

@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Typography, TextField, Button, Box, Container, Link, InputBase, Slide } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -12,30 +13,31 @@ const Home = () => {
   const [selectedCountry, setSelectedCountry] = useState({
     name: 'Indonesia',
     code: '+62',
-    flag: `${import.meta.env.BASE_URL}images/icons/Flag/indonesia.svg`
+    flag: '/Indonesia/images/icons/Flag/indonesia.svg'
   });
+  const navigate = useNavigate();
 
   const countries = [
-    { name: 'Indonesia', code: '+62', flag: `${import.meta.env.BASE_URL}images/icons/Flag/indonesia.svg` },
-    { name: 'Afghanistan', code: '+93', flag: `${import.meta.env.BASE_URL}images/icons/Flag/afghanistan.svg` },
-    { name: 'Albania', code: '+355', flag: `${import.meta.env.BASE_URL}images/icons/Flag/albania.svg` },
-    { name: 'Algeria', code: '+213', flag: `${import.meta.env.BASE_URL}images/icons/Flag/algeria.svg` },
-    { name: 'Andorra', code: '+376', flag: `${import.meta.env.BASE_URL}images/icons/Flag/andorra.svg` },
-    { name: 'Angola', code: '+244', flag: `${import.meta.env.BASE_URL}images/icons/Flag/angola.svg` },
-    { name: 'Argentina', code: '+54', flag: `${import.meta.env.BASE_URL}images/icons/Flag/argentina.svg` },
-    { name: 'Armenia', code: '+374', flag: `${import.meta.env.BASE_URL}images/icons/Flag/armenia.svg` },
-    { name: 'Australia', code: '+61', flag: `${import.meta.env.BASE_URL}images/icons/Flag/australia.svg` },
-    { name: 'Austria', code: '+43', flag: `${import.meta.env.BASE_URL}images/icons/Flag/austria.svg` },
-    { name: 'Azerbaijan', code: '+994', flag: `${import.meta.env.BASE_URL}images/icons/Flag/azerbaijan.svg` },
-    { name: 'Bahrain', code: '+973', flag: `${import.meta.env.BASE_URL}images/icons/Flag/bahrain.svg` },
-    { name: 'Bangladesh', code: '+880', flag: `${import.meta.env.BASE_URL}images/icons/Flag/bangladesh.svg` },
-    { name: 'Belgium', code: '+32', flag: `${import.meta.env.BASE_URL}images/icons/Flag/belgium.svg` },
-    { name: 'Brazil', code: '+55', flag: `${import.meta.env.BASE_URL}images/icons/Flag/brazil.svg` },
-    { name: 'Canada', code: '+1', flag: `${import.meta.env.BASE_URL}images/icons/Flag/canada.svg` },
-    { name: 'China', code: '+86', flag: `${import.meta.env.BASE_URL}images/icons/Flag/china.svg` },
-    { name: 'Egypt', code: '+20', flag: `${import.meta.env.BASE_URL}images/icons/Flag/egypt.svg` },
-    { name: 'France', code: '+33', flag: `${import.meta.env.BASE_URL}images/icons/Flag/france.svg` },
-    { name: 'Germany', code: '+49', flag: `${import.meta.env.BASE_URL}images/icons/Flag/germany.svg` },
+    { name: 'Indonesia', code: '+62', flag: '/Indonesia/images/icons/Flag/indonesia.svg' },
+    { name: 'Afghanistan', code: '+93', flag: '/Indonesia/images/icons/Flag/afghanistan.svg' },
+    { name: 'Albania', code: '+355', flag: '/Indonesia/images/icons/Flag/albania.svg' },
+    { name: 'Algeria', code: '+213', flag: '/Indonesia/images/icons/Flag/algeria.svg' },
+    { name: 'Andorra', code: '+376', flag: '/Indonesia/images/icons/Flag/andorra.svg' },
+    { name: 'Angola', code: '+244', flag: '/Indonesia/images/icons/Flag/angola.svg' },
+    { name: 'Argentina', code: '+54', flag: '/Indonesia/images/icons/Flag/argentina.svg' },
+    { name: 'Armenia', code: '+374', flag: '/Indonesia/images/icons/Flag/armenia.svg' },
+    { name: 'Australia', code: '+61', flag: '/Indonesia/images/icons/Flag/australia.svg' },
+    { name: 'Austria', code: '+43', flag: '/Indonesia/images/icons/Flag/austria.svg' },
+    { name: 'Azerbaijan', code: '+994', flag: '/Indonesia/images/icons/Flag/azerbaijan.svg' },
+    { name: 'Bahrain', code: '+973', flag: '/Indonesia/images/icons/Flag/bahrain.svg' },
+    { name: 'Bangladesh', code: '+880', flag: '/Indonesia/images/icons/Flag/bangladesh.svg' },
+    { name: 'Belgium', code: '+32', flag: '/Indonesia/images/icons/Flag/belgium.svg' },
+    { name: 'Brazil', code: '+55', flag: '/Indonesia/images/icons/Flag/brazil.svg' },
+    { name: 'Canada', code: '+1', flag: '/Indonesia/images/icons/Flag/canada.svg' },
+    { name: 'China', code: '+86', flag: '/Indonesia/images/icons/Flag/china.svg' },
+    { name: 'Egypt', code: '+20', flag: '/Indonesia/images/icons/Flag/egypt.svg' },
+    { name: 'France', code: '+33', flag: '/Indonesia/images/icons/Flag/france.svg' },
+    { name: 'Germany', code: '+49', flag: '/Indonesia/images/icons/Flag/germany.svg' },
   ];
 
   const filteredCountries = useMemo(() => {
@@ -244,6 +246,14 @@ const Home = () => {
               },
               '&:hover': {
                 backgroundColor: isValidIndonesianPhone ? '#008435' : '#999999',
+              }
+            }}
+            onClick={() => {
+              const cleanPhone = phoneNumber.replace(/\D/g, '');
+              if (cleanPhone === '8888888888') {
+                navigate('/otp');
+              } else if (cleanPhone === '81234567890') {
+                navigate('/otp-old');
               }
             }}
           >
