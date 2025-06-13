@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Box, Typography, Button, TextField, Link } from '@mui/material';
+import { Box, Typography, Button, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const OTP_LENGTH = 6;
@@ -38,7 +38,6 @@ const OtpOld = () => {
         <Button sx={{ minWidth: 0, p: 0 }} onClick={() => navigate(-1)}>
           <span style={{ fontSize: 24 }}>{'←'}</span>
         </Button>
-        <Button variant="outlined" size="small" sx={{ borderRadius: 999, fontSize: 14, px: 1.5, py: 0.5 }}>English</Button>
       </Box>
       <Box sx={{ textAlign: 'center', mb: 2 }}>
         <Typography variant="h3" sx={{ fontFamily: 'serif', color: '#009745', fontWeight: 700, fontSize: 32, mb: 0.5 }}>MakkahGo</Typography>
@@ -55,7 +54,7 @@ const OtpOld = () => {
             inputRef={el => inputRefs.current[idx] = el}
             value={digit}
             onChange={e => handleChange(e.target.value, idx)}
-            onKeyDown={e => handleKeyDown(e, idx)}
+            onKeyDown={e => handleKeyDown(e as React.KeyboardEvent<HTMLInputElement>, idx)}
             inputProps={{ maxLength: 1, style: { textAlign: 'center', fontSize: 28, width: 40, height: 48 } }}
             error={isError}
             sx={{ '& .MuiOutlinedInput-root': { p: 0, borderRadius: 1, width: 48, height: 48 } }}
@@ -76,6 +75,7 @@ const OtpOld = () => {
           mb: 2,
           '&.Mui-disabled': { color: '#fff' },
         }}
+        onClick={() => navigate('/wish')}
       >
         Continue
       </Button>
@@ -84,11 +84,6 @@ const OtpOld = () => {
           驗證碼錯誤，請重新輸入
         </Typography>
       )}
-      <Typography sx={{ fontSize: 13, color: '#888', mt: 2 }}>
-        I agree to MakkahGo{' '}
-        <Link href="#" sx={{ color: '#009745' }}>Terms of service</Link> &amp;{' '}
-        <Link href="#" sx={{ color: '#009745' }}>Privacy Policy</Link>.
-      </Typography>
     </Box>
   );
 };
