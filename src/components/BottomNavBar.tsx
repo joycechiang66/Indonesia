@@ -1,5 +1,6 @@
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import ChatIcon from '@mui/icons-material/Chat';
+import StoreIcon from '@mui/icons-material/Store';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExploreIcon from '@mui/icons-material/Explore';
 import StarIcon from '@mui/icons-material/Star';
@@ -8,7 +9,7 @@ import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const navItems = [
-  { label: 'Chat', icon: <ChatIcon />, path: '/chat' },
+  { label: 'Shop', icon: <StoreIcon />, path: '/shop' },
   { label: 'Wish', icon: <FavoriteIcon />, path: '/wish' },
   { label: 'Journey', icon: <ExploreIcon />, path: '/journey' },
   { label: 'Point', icon: <StarIcon />, path: '/point' },
@@ -27,13 +28,13 @@ const BottomNavBar = () => {
   };
 
   return (
-    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1300, width: '100vw', maxWidth: '100vw' }} elevation={3}>
+    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1300, width: '100vw', maxWidth: '100vw', boxShadow: 'none', border: 'none' }} elevation={0}>
       <BottomNavigation
         value={value}
         onChange={handleChange}
         showLabels
       >
-        {navItems.map((item, idx) => (
+        {navItems.map((item) => (
           <BottomNavigationAction key={item.label} label={item.label} icon={item.icon} />
         ))}
       </BottomNavigation>

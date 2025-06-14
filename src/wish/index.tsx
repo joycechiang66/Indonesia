@@ -3,9 +3,9 @@ import BottomNavBar from '../components/BottomNavBar';
 
 const WishHome = () => (
   <Box sx={{ minHeight: '100vh', bgcolor: '#fff', pb: 7 }}>
-    <AppBar position="static" sx={{ height: 44, minHeight: 44, justifyContent: 'center', bgcolor: '#fff', color: '#000', boxShadow: 1, width: '100vw', maxWidth: '100vw' }}>
-      <Toolbar sx={{ minHeight: 44, height: 44, px: 2 }}>
-        <Typography variant="h6" sx={{ fontSize: 18, fontWeight: 700 }}>
+    <AppBar position="static" sx={{ height: 44, minHeight: 44, justifyContent: 'center', bgcolor: '#fff', color: '#000', boxShadow: 'none', borderBottom: 'none', width: '100vw', maxWidth: '100vw' }}>
+      <Toolbar sx={{ minHeight: 44, height: 44, px: 2, justifyContent: 'center' }}>
+        <Typography variant="h6" sx={{ fontSize: 18, fontWeight: 700, mx: 'auto', textAlign: 'center', width: '100%' }}>
           Wish
         </Typography>
       </Toolbar>
