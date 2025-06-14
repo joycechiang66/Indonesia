@@ -1,5 +1,4 @@
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
-import ChatIcon from '@mui/icons-material/Chat';
 import StoreIcon from '@mui/icons-material/Store';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExploreIcon from '@mui/icons-material/Explore';

@@ -1,9 +1,8 @@
-import { Box, Typography, AppBar, Toolbar, Paper, Tabs, Tab, Button, Divider, List, ListItem, ListItemText, Chip, IconButton, Dialog, DialogTitle, DialogContent } from '@mui/material';
+import { Box, Typography, AppBar, Toolbar, Paper, Tabs, Tab, Button, List, ListItem, ListItemText, Chip, IconButton, Dialog, DialogTitle, DialogContent } from '@mui/material';
 import BottomNavBar from '../components/BottomNavBar';
 import { useState } from 'react';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import dayjs from 'dayjs';
 
 const pointRecords = [
   { id: 1, type: 'earn', title: '消費回饋', date: '2024-06-01', amount: 100, desc: '於 Makkah Halal Restaurant 消費獲得點數' },
