@@ -1,6 +1,6 @@
 import { Box, Typography, AppBar, Toolbar } from '@mui/material';
 import BottomNavBar from '../components/BottomNavBar';
-import TermsOfServiceLink from '../components/TermsOfServiceLink';
+// import TermsOfServiceLink from '../components/TermsOfServiceLink';
 
 const JourneyHome = () => (
   <Box sx={{ minHeight: '100vh', bgcolor: '#fff', pb: 7 }}>
@@ -11,8 +11,8 @@ const JourneyHome = () => (
         </Typography>
       </Toolbar>
     </AppBar>
-    <Typography variant="h4" sx={{ p: 2 }}>Journey Home</Typography>
-    <TermsOfServiceLink />
+    {/* <Typography variant="h4" sx={{ p: 2 }}>Journey Home</Typography> */}
+    {/* <TermsOfServiceLink /> */}
     <BottomNavBar />
   </Box>
 );
