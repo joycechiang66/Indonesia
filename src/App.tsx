@@ -6,7 +6,7 @@ import OtpVerify from './pages/home/OtpVerify';
 import OtpOld from './pages/home/OtpOld';
 import ShopHome from './chat';
 import WishHome from './wish';
-import JourneyHome from './journey';
+import GuideHome from './guide';
 import PointHome from './point';
 import MyProfileHome from './myprofile';
 import WishDetail from './wish/WishDetail';
@@ -44,20 +44,20 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter basename="/Indonesia">
         <WishProvider>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/otp" element={<OtpVerify />} />
-              <Route path="/otp-old" element={<OtpOld />} />
-              <Route path="/shop" element={<ShopHome />} />
-              <Route path="/wish" element={<WishHome />} />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/otp" element={<OtpVerify />} />
+            <Route path="/otp-old" element={<OtpOld />} />
+            <Route path="/shop" element={<ShopHome />} />
+            <Route path="/wish" element={<WishHome />} />
               <Route path="/wish/:id" element={<WishDetail />} />
-              <Route path="/journey" element={<JourneyHome />} />
-              <Route path="/point" element={<PointHome />} />
-              <Route path="/myprofile" element={<MyProfileHome />} />
-              {/* Add more routes here as needed */}
-            </Routes>
-          </Layout>
+            <Route path="/guide" element={<GuideHome />} />
+            <Route path="/point" element={<PointHome />} />
+            <Route path="/myprofile" element={<MyProfileHome />} />
+            {/* Add more routes here as needed */}
+          </Routes>
+        </Layout>
         </WishProvider>
       </BrowserRouter>
     </ThemeProvider>

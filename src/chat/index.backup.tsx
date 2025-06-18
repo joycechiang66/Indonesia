@@ -5,7 +5,6 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import React from 'react';
 import { TransitionProps } from '@mui/material/transitions';
 import CloseIcon from '@mui/icons-material/Close';
-import TopBanner from '../components/TopBanner';
 
 const shops = [
   {
@@ -87,16 +86,17 @@ const ShopHome = () => {
   const [openShop, setOpenShop] = React.useState(null as null | typeof shops[0]);
 
   return (
-    <Box sx={{ minHeight: '100vh', pb: 7, position: 'relative', background: '#f5f5f5', width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}>
-      <TopBanner
-        username="Hi Agus Wibowo"
-        cardIcon={<img src="/Indonesia/images/icons/wallet50.svg" alt="shop" style={{ width: 48, height: 48, background: '#fff3e0', borderRadius: 24 }} />}
-        cardTitle="Points"
-        cardValue={590}
-      />
-      <Box sx={{ p: 2, pt: 3, width: '100%' }}>
+    <Box sx={{ minHeight: '100vh', bgcolor: '#fff', pb: 7 }}>
+      <AppBar position="static" sx={{ mt: '24px', height: 44, minHeight: 44, justifyContent: 'center', bgcolor: '#fff', color: '#000', boxShadow: 'none', borderBottom: 'none', width: '100vw', maxWidth: '100vw' }}>
+        <Toolbar sx={{ minHeight: 44, height: 44, px: 2, justifyContent: 'center' }}>
+          <Typography variant="h6" sx={{ fontSize: 18, fontWeight: 700, mx: 'auto', textAlign: 'center', width: '100%' }}>
+            Shop
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Box sx={{ p: 2, pt: 3 }}>
         {shops.map(shop => (
-          <Paper key={shop.id} elevation={2} sx={{ width: '100%', mt: 1.5, mb: 1.5, p: 2, borderRadius: 3, display: 'flex', gap: 2, cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.08)', bgcolor: '#fff' }} onClick={() => setOpenShop(shop)}>
+          <Paper key={shop.id} elevation={2} sx={{ mb: 3, p: 2, borderRadius: 3, display: 'flex', gap: 2, cursor: 'pointer' }} onClick={() => setOpenShop(shop)}>
             <Box sx={{ minWidth: 90, width: 90, height: 90, borderRadius: 2, overflow: 'hidden', bgcolor: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img src={shop.image} alt={shop.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={e => { e.currentTarget.src = '/images/shops/default.jpg'; }} />
             </Box>

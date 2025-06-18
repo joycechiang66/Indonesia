@@ -10,7 +10,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const navItems = [
   { label: 'Shop', icon: <StoreIcon />, path: '/shop' },
   { label: 'Wish', icon: <FavoriteIcon />, path: '/wish' },
-  { label: 'Journey', icon: <ExploreIcon />, path: '/journey' },
+  { label: 'Guide', icon: <ExploreIcon />, path: '/guide' },
   { label: 'Point', icon: <StarIcon />, path: '/point' },
   { label: 'MyProfile', icon: <PersonIcon />, path: '/myprofile' },
 ];

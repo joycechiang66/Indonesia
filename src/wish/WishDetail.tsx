@@ -1,27 +1,36 @@
 import React, { useState } from 'react';
-import { Box, Typography, AppBar, Toolbar, IconButton, Button } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Box, Typography, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@mui/material';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useWish, mockMoods } from './WishContext';
 import WishDialog from './WishDialog';
 
-// TODO: 之後可改為 context 或 props 傳遞
-const mockWish = {
-  id: 1,
-  title: 'World Peace',
-  description: 'I wish for world peace, where all nations live in harmony and understanding, free from conflict and violence. May compassion and empathy guide our actions, fostering a world of cooperation and shared prosperity.',
-  mood: 'hopeful',
-  image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
-};
-
 const WishDetail: React.FC = () => {
-  const navigate = useNavigate();
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const { wishes, deleteWish } = useWish();
-  const wish = wishes.find(w => w.id === Number(id));
+  const navigate = useNavigate();
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const wish = wishes.find(w => w.id === Number(id));
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleDelete = () => {
+    if (wish) {
+      deleteWish(wish.id);
+      navigate('/wish');
+    }
+  };
 
   if (!wish) {
     return <Typography>願望不存在</Typography>;
@@ -29,23 +38,35 @@ const WishDetail: React.FC = () => {
 
   const mood = mockMoods.find(m => m.value === wish.mood);
 
-  const handleDelete = () => {
-    deleteWish(wish.id);
-    navigate('/wish');
-  };
-
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: '#fff', pb: 7 }}>
-      <AppBar position="static" sx={{ height: 44, minHeight: 44, justifyContent: 'center', bgcolor: '#fff', color: '#000', boxShadow: 'none', borderBottom: 'none', width: '100vw', maxWidth: '100vw' }}>
-        <Toolbar sx={{ minHeight: 44, height: 44, px: 1, justifyContent: 'flex-start' }}>
-          <IconButton edge="start" onClick={() => navigate(-1)}>
-            <ArrowBackIcon />
+    <Box sx={{ minHeight: '100vh', bgcolor: '#fff', position: 'relative' }}>
+      <AppBar position="static" sx={{ mt: '24px', backgroundColor: 'transparent', color: '#000', boxShadow: 'none' }}>
+        <Toolbar>
+          <IconButton edge="start" color="inherit" onClick={() => navigate(-1)} aria-label="back">
+            <ArrowBackIosNewIcon />
           </IconButton>
-          <Typography variant="h6" sx={{ fontSize: 18, fontWeight: 700, ml: 1 }}>
-            Wish Details
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center', fontWeight: 'bold' }}>
+            {wish.title}
           </Typography>
+          <IconButton edge="end" color="inherit" onClick={handleMenuOpen}>
+            <MoreVertIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+      >
+        <MenuItem onClick={() => { setDialogOpen(true); handleMenuClose(); }}>
+          <EditIcon sx={{ mr: 1 }} />
+          Edit
+        </MenuItem>
+        <MenuItem onClick={() => { handleDelete(); handleMenuClose(); }}>
+          <DeleteIcon sx={{ mr: 1 }} />
+          Delete
+        </MenuItem>
+      </Menu>
       <Box sx={{ p: 3, pt: 2 }}>
         <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>{wish.title}</Typography>
         <Typography variant="body1" sx={{ color: '#555', mb: 2 }}>{wish.description}</Typography>
@@ -59,12 +80,8 @@ const WishDetail: React.FC = () => {
           <span style={{ fontSize: 24 }}>{mood?.emoji}</span>
           <Typography variant="body1">{mood?.label}</Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
-          <Button variant="outlined" startIcon={<EditIcon />} color="inherit" onClick={() => setDialogOpen(true)}>Edit</Button>
-          <Button variant="contained" startIcon={<DeleteIcon />} color="error" onClick={handleDelete}>Delete</Button>
-        </Box>
       </Box>
-      <WishDialog open={dialogOpen} onClose={() => setDialogOpen(false)} wish={wish} />
+      {wish && <WishDialog open={dialogOpen} onClose={() => setDialogOpen(false)} wish={wish} />}
     </Box>
   );
 };
