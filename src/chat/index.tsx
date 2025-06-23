@@ -1,4 +1,4 @@
-import { Box, Typography, AppBar, Toolbar, Paper, Dialog, Slide, IconButton, Divider } from '@mui/material';
+import { Box, Typography, Paper, Dialog, Slide, IconButton, Divider } from '@mui/material';
 import BottomNavBar from '../components/BottomNavBar';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';

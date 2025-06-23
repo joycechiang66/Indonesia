@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, AppBar, Toolbar, Fab, Paper } from '@mui/material';
+import { Box, Typography, Fab, Paper } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 import BottomNavBar from '../components/BottomNavBar';

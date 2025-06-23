@@ -1,4 +1,4 @@
-import { Box, Typography, Paper, List, ListItem, ListItemText, Avatar } from '@mui/material';
+import { Box, Typography, List, ListItem, ListItemText } from '@mui/material';
 import BottomNavBar from '../components/BottomNavBar';
 import TopBanner from '../components/TopBanner';
 
