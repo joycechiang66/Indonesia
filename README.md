@@ -1,77 +1,102 @@
-# Indonesia Project
+# Indonesia App
 
-A modern React application built with TypeScript and Material-UI.
+A React-based web application built with TypeScript, Vite, and Material-UI.
 
-## Features
+## 🚀 Features
 
-- 🚀 Built with Vite for lightning-fast development
-- 💎 TypeScript for type safety
-- 🎨 Material-UI for beautiful, responsive components
-- 📱 Mobile-first design approach
-- 🎯 Comprehensive CSS utility classes
-- 🔄 State-of-the-art routing with React Router
-- 🛠 Modern development tools and practices
+- Modern React with TypeScript
+- Material-UI components
+- Responsive design
+- Chat functionality
+- Point system
+- Wish management
+- User profiles
 
-## Prerequisites
-
-Before you begin, ensure you have the following installed:
-- Node.js (v14.0.0 or higher)
-- npm (v6.0.0 or higher)
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/joycechiang66/indonesia.git
-   ```
-
-2. Navigate to the project directory:
-   ```bash
-   cd indonesia
-   ```
-
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-## Development
-
-To start the development server:
+## 📦 Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/joycechiang66/Indonesia.git
+
+# Navigate to the project directory
+cd Indonesia
+
+# Install dependencies
+npm install
+```
+
+## 🛠️ Development
+
+```bash
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run linting
+npm run lint
 ```
 
-The application will be available at `http://localhost:5173`.
+## 🚀 Deployment
 
-## Building for Production
+This project is configured for automatic deployment to GitHub Pages.
 
-To create a production build:
+### Automatic Deployment
+
+The app automatically deploys when you push to the following branches:
+- `dev` - Development/staging environment
+- `main` - Production environment
+
+### Manual Deployment
 
 ```bash
-npm run build
+# Deploy to GitHub Pages
+npm run deploy
 ```
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 src/
-  ├── components/     # Reusable components
-  ├── pages/         # Page components
-  ├── styles/        # Global styles
-  ├── App.tsx        # Main application component
-  └── main.tsx       # Application entry point
+├── components/          # Reusable components
+├── pages/              # Page components
+├── chat/               # Chat functionality
+├── point/              # Point system
+├── wish/               # Wish management
+├── myprofile/          # User profile
+├── guide/              # Guide content
+├── database/           # Database configuration
+├── models/             # Data models
+└── styles/             # Global styles
 ```
 
-## Contributing
+## 🔧 Technologies Used
+
+- React 19
+- TypeScript
+- Vite
+- Material-UI
+- React Router
+- Axios
+- Day.js
+- Styled Components
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
+## 📞 Support
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+For support, please open an issue on GitHub or contact the development team.
